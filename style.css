@@ -36,7 +36,7 @@ header{
 .nav{
     max-width: 608px;
     margin: 0 auto;
-    padding: 41px 0 35px 0;
+    padding: 31px 0 25px 0;
     display: flex;
     justify-content: space-around;
     align-content: space-between;
@@ -138,7 +138,7 @@ main{
         max-width: 640px;
     }
     .nav{
-        margin: 34px auto 34px;
+        padding: 24px 0 24px 0;
     }
     section h2{
         width: 200px;
