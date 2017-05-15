@@ -17,7 +17,7 @@ body{
     margin: 0 auto;
 }
 
-header{
+#header{
     width: 100%;
     background: #fcfcfc;
 }
@@ -41,7 +41,6 @@ header{
     justify-content: space-around;
     align-content: space-between;
     flex-wrap: wrap;
-    font-family: Helvetica,Arial,cursive;
 
 }
 .nav li{
@@ -51,16 +50,19 @@ header{
     text-align: center;
     cursor: pointer;
     background: rgba(204,204,204,0.1);
+    transition: all .3s;
 
 }
-section{
+.nav li:hover{
+    box-shadow: 0 0 8px #ccc;
+}
+#section{
     width: 100%;
     padding-top: 75px;
     padding-bottom: 102px;
-    font-family: Helvetica,Arial,cursive;
     background: #eed;
 }
-section h2{
+#section h2{
     max-width: 376px;
     line-height: 40px;
     margin: 0 auto 35px;
@@ -71,7 +73,7 @@ section h2{
 .toggle{
     display: none;
 }
-section p{
+#section p{
     max-width: 536px;
     line-height: 24px;
     margin: 19px auto 0;
@@ -80,7 +82,8 @@ section p{
     color: #333;
     border-radius: 14px;
 }
-main{
+#main{
+    width: 100%;
     background: #fff;
 }
 .content{
@@ -114,19 +117,11 @@ main{
     line-height: 16px;
     font-size: 14px;
 }
-@media (min-width: 1367px){
-    .wrap{
-        width: 1440px;
-    }
-    main{
-        padding: 0 240px;
-    }
-}
-@media (min-width: 640px) and (max-width: 1366px){
+
+@media (min-width: 641px){
     .wrap{
         max-width: 960px;
     }
-
 }
 @media (max-width: 880px){
     .hidden{
@@ -140,10 +135,10 @@ main{
     .nav{
         padding: 24px 0 24px 0;
     }
-    section h2{
+    #section h2{
         width: 200px;
     }
-    section p{
+    #section p{
         width: 250px;
     }
     .toggle{
