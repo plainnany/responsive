@@ -62,8 +62,6 @@ body{
 
 #section{
     width: 100%;
-    /*padding-top: 75px;
-    padding-bottom: 102px;*/
     background: #eed;
 }
 #section h2{
@@ -88,13 +86,12 @@ body{
 }
 /* 轮播 */
 #slide{
-    /*width: 100%;*/
     overflow: hidden;
     position: relative;
 }
 .slide{
     display: flex;
-    transition: .7s;
+    transition: 1.0s;
     
 }
 .slide>li{
