@@ -8,15 +8,15 @@ window.onload = function(){
     
     var index = 0;
     var num;
-   
-
-
+    var w = aLi[0].offsetWidth;
     next.addEventListener('click',function(){
+        w = aLi[0].offsetWidth;
+        console.log(aLi[0].offsetWidth)
         index++;
         if(index===4){
             index = 0;
         }
-        slide.style.marginLeft = -960*index + 'px';
+        slide.style.transform = 'translate('+ (-w*index) +'px)';
 
         for(var i=0;i<menuLi.length;i++){
             menuLi[i].className=''
@@ -25,11 +25,12 @@ window.onload = function(){
         
     })
     prev.addEventListener('click',function(){
+        w = aLi[0].offsetWidth;
         index--;
         if(index===-1){
             index = 3;
         }
-        slide.style.marginLeft = -960*index + 'px';
+        slide.style.transform = 'translate('+ (-w*index) +'px)';
 
         for(var i=0;i<menuLi.length;i++){
             menuLi[i].className=''
@@ -61,7 +62,7 @@ window.onload = function(){
             }
             this.className='active';
 
-            slide.style.marginLeft = -960*index + 'px';   
+            slide.style.transform = 'translate('+ (-w*index) +'px)';
         }
     }   
 

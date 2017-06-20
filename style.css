@@ -88,19 +88,18 @@ body{
 }
 /* 轮播 */
 #slide{
-    width: 100%;
+    /*width: 100%;*/
     overflow: hidden;
     position: relative;
 }
 .slide{
-    width: 4000px;
+    display: flex;
     transition: .7s;
     
 }
 .slide>li{
-    width: 960px;  /* 响应式如何解决？？  */
-
-    float: left;
+    width: 100%;
+    flex-shrink: 0;
 }
 .slide img{
     width: 100%;
