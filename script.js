@@ -11,7 +11,6 @@ window.onload = function(){
     var w = aLi[0].offsetWidth;
     next.addEventListener('click',function(){
         w = aLi[0].offsetWidth;
-        console.log(aLi[0].offsetWidth)
         index++;
         if(index===4){
             index = 0;
