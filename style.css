@@ -9,6 +9,9 @@ img{
     height: 100%;
     vertical-align: top;
 }
+a{
+    text-decoration: none;
+}
 body{
     background: #f1f1f1;
     font-family: Helvetica,Arial,cursive;
@@ -56,10 +59,11 @@ body{
 .nav li:hover{
     box-shadow: 0 0 8px #ccc;
 }
+
 #section{
     width: 100%;
-    padding-top: 75px;
-    padding-bottom: 102px;
+    /*padding-top: 75px;
+    padding-bottom: 102px;*/
     background: #eed;
 }
 #section h2{
@@ -82,6 +86,77 @@ body{
     color: #333;
     border-radius: 14px;
 }
+/* 轮播 */
+#slide{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.slide{
+    width: 4000px;
+    transition: .7s;
+    
+}
+.slide>li{
+    width: 960px;  /* 响应式如何解决？？  */
+
+    float: left;
+}
+.slide img{
+    width: 100%;
+}
+#next,#prev{   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 38px;
+    color: #eed; 
+    cursor: pointer;
+    border-radius: 50%;
+}
+#next:hover,#prev:hover{
+    background: rgba(0,0,0,0.2);
+}
+#next{
+    right: 40px;
+}
+#prev{
+    left: 40px;
+    
+}
+.menu{
+    width: 150px;
+    display: flex;
+    justify-content: space-around;    
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.menu li{
+    width: 20px;
+    height: 20px;
+    background: rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+
+}
+.menu li.active{
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+}
+
+
 #main{
     width: 100%;
     background: #fff;
