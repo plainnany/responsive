@@ -105,9 +105,16 @@ window.onload = function(){
                 loadMore.className = ''
             }
             
-            
-
-            
+        }
+        window.onscroll = function(){
+            let clientHeight = document.documentElement.clientHeight
+            let viewportOffset = loadMore.getBoundingClientRect();
+            let buttonTop = viewportOffset.top;
+          
+            if(buttonTop > clientHeight - 57){
+            }else{
+                loadMore.onclick()
+            }
         }
     }()
 
