@@ -11,6 +11,7 @@ img{
 }
 a{
     text-decoration: none;
+    color: inherit;
 }
 body{
     background: #f1f1f1;
@@ -186,7 +187,7 @@ body{
 .content li p{
     max-width: 288px;
     line-height: 16px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 @media (min-width: 641px){
@@ -216,6 +217,25 @@ body{
         display: block;
     }
 
+}
+.load{
+    width: 100%;
+    text-align: center;
+
+}
+.load a{
+    display: inline-block;
+    border: 1px solid #ccc;
+    line-height: 30px;
+    padding: 5px 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    background: #50bfff;
+    color: #fff;
+
+}
+.load a.active{
+    opacity: 0.8;
 }
 
 

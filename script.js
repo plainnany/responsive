@@ -14,6 +14,10 @@ window.onload = function(){
 
     function play(){
         index++;
+        // var clone = aLi[index];
+        // slide.appendChild(clone);
+
+        // console.log(aLi[index])
         if(index===4){
             index = 0;
         }
@@ -59,5 +63,52 @@ window.onload = function(){
     })
     timer = setInterval(play,3000);
        
+
+    // loadMore
+    
+    !function(){
+        let loadMore = document.querySelector('#loadMore')
+        let content = document.querySelector('.content')
+        let index = 0
+        loadMore.onclick = function(){
+            let request = new XMLHttpRequest()
+            request.open('GET','/page'+ index +'.html')
+            request.onload=function(){
+                let response = request.responseText
+                let data = JSON.parse(response)
+                let html = ''
+                for(let i = 0;i < data.content.length;i++){
+                    html += '<li>\
+                    <div><img src='+ data.content[i].url +' alt=""></div>\
+                    <h3>'+ data.content[i].title +'</h3><p>'+ data.content[i].content +'</p>\
+                    </li>'
+                } 
+                loadMore.innerText = '加载更多'
+                loadMore.className = ''
+                if(!data.hasNextPage){
+                    loadMore.innerText = '已经加载到最后啦！'
+                    loadMore.className = ''
+                }
+                
+                content.innerHTML += html   
+                
+            }
+            index+=1
+            setTimeout(function(){
+                request.send()
+            },1000)
+            if(index<3){
+                loadMore.innerText = '加载中……'
+                loadMore.className = 'active'
+            }else{
+                loadMore.innerText = '已经加载到最后啦！'
+                loadMore.className = ''
+            }
+            
+            
+
+            
+        }
+    }()
 
 }
