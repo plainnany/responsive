@@ -72,7 +72,7 @@ window.onload = function(){
         let index = 0
         loadMore.onclick = function(){
             let request = new XMLHttpRequest()
-            request.open('GET','/page'+ index +'.html')
+            request.open('GET','./page'+ index +'.html')
             request.onload=function(){
                 let response = request.responseText
                 let data = JSON.parse(response)
