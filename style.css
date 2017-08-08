@@ -171,7 +171,7 @@ body{
 .content li div{
     width: 288px;
     height: 300px;   /*  181 */
-    background: #d8d8d8;
+    /* background: #d8d8d8; */
 
 }
 .content li img{

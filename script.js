@@ -70,16 +70,22 @@ window.onload = function(){
         let loadMore = document.querySelector('#loadMore')
         let content = document.querySelector('.content')
         let index = 0
-        loadMore.onclick = function(){
+        let hasNext = true
+        let isLoading = false
+        function load(){
+            if(isLoading){return}
+            if(!hasNext){return}
             let request = new XMLHttpRequest()
             request.open('GET','./page'+ index +'.html')
             request.onload=function(){
+                isLoading = false   // 如果加载完毕，就发送请求
+                index+=1
                 let response = request.responseText
                 let data = JSON.parse(response)
                 let html = ''
                 for(let i = 0;i < data.content.length;i++){
                     html += '<li>\
-                    <div><img src='+ data.content[i].url +' alt=""></div>\
+                    <div><img src="loading-bg.gif" data-src='+ data.content[i].url +' alt=""></div>\
                     <h3>'+ data.content[i].title +'</h3><p>'+ data.content[i].content +'</p>\
                     </li>'
                 } 
@@ -88,15 +94,19 @@ window.onload = function(){
                 if(!data.hasNextPage){
                     loadMore.innerText = '没有更多的数据了'
                     loadMore.className = ''
+                    hasNext = false    // 判断是否有下一页，如果没有，直接return
                 }
                 
                 content.innerHTML += html   
                 
             }
-            index+=1
+            
+            
+            isLoading = true  // 如果正在加载，就直接return,不允许用户重复点击、重复发送请求
             setTimeout(function(){
                 request.send()
             },1000)
+            
             if(index<3){
                 loadMore.innerHTML = '<img src="loading.gif" alt="loading" title="loading" >'
                 loadMore.className = 'active'
@@ -106,14 +116,30 @@ window.onload = function(){
             }
             
         }
-        window.onscroll = function(){
+
+        function showInViewport(element){
             let clientHeight = document.documentElement.clientHeight
-            let viewportOffset = loadMore.getBoundingClientRect();
+            let viewportOffset = element.getBoundingClientRect();
             let buttonTop = viewportOffset.top;
           
             if(buttonTop > clientHeight - 57){
+                
+                return false
             }else{
-                loadMore.onclick()
+                return true
+            }
+        }
+        loadMore.onclick = load
+        window.onscroll = function(){
+            if(showInViewport(loadMore)){
+                load()
+            }
+            let images = document.querySelectorAll('img[data-src]')
+            for(let i=0;i<images.length;i++){
+                if(showInViewport(images[i])){
+                    images[i].src = images[i].getAttribute('data-src')
+                    images[i].removeAttribute('data-src')
+                }
             }
         }
     }()
