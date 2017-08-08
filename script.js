@@ -86,7 +86,7 @@ window.onload = function(){
                 loadMore.innerText = '加载更多'
                 loadMore.className = ''
                 if(!data.hasNextPage){
-                    loadMore.innerText = '已经加载到最后啦！'
+                    loadMore.innerText = '没有更多的数据了'
                     loadMore.className = ''
                 }
                 
@@ -98,10 +98,10 @@ window.onload = function(){
                 request.send()
             },1000)
             if(index<3){
-                loadMore.innerText = '加载中……'
+                loadMore.innerHTML = '<img src="loading.gif" alt="loading" title="loading" >'
                 loadMore.className = 'active'
             }else{
-                loadMore.innerText = '已经加载到最后啦！'
+                loadMore.innerText = '没有更多的数据了'
                 loadMore.className = ''
             }
             

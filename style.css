@@ -237,6 +237,12 @@ body{
 .load a.active{
     opacity: 0.8;
 }
+.load img{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    padding: 0 17px;
+}
 
 
 
