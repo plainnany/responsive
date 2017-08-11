@@ -28,8 +28,12 @@ window.onload = function(){
         }
         menuLi[index].className='active';
     }
-    next.addEventListener('click',play);
+    next.addEventListener('click',function(){
+        clearInterval(timer);
+        play();
+    });
     prev.addEventListener('click',function(){
+        clearInterval(timer);
         index--;
         if(index===-1){
             index = 3;
@@ -121,12 +125,12 @@ window.onload = function(){
             let clientHeight = document.documentElement.clientHeight
             let viewportOffset = element.getBoundingClientRect();
             let buttonTop = viewportOffset.top;
-          
-            if(buttonTop > clientHeight - 57){
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+            if(buttonTop > clientHeight - 57){   // || elementTop <  -elementHeight
                 
                 return false
             }else{
-                return true
+                return true    
             }
         }
         loadMore.onclick = load
