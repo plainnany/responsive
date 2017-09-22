@@ -112,12 +112,12 @@ body{
     top: 50%;
     transform: translateY(-50%);
     font-size: 38px;
-    color: #eed; 
+    color: #fff; 
     cursor: pointer;
     border-radius: 50%;
 }
 #next:hover,#prev:hover{
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.4);
 }
 #next{
     right: 40px;
@@ -127,7 +127,6 @@ body{
     
 }
 .menu{
-    width: 150px;
     display: flex;
     justify-content: space-around;    
     position: absolute;
@@ -138,19 +137,19 @@ body{
 }
 
 .menu li{
-    width: 20px;
-    height: 20px;
-    background: rgba(0,0,0,0.1);
+    width: 42px;
+    height: 7px;
+    margin: 0 5px;
+    background: rgba(255,255,255,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 5px;
 
 }
 .menu li.active{
-    background: rgba(0,0,0,0.5);
-    color: #fff;
+    background: #fff;
 }
 
 

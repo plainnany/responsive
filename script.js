@@ -9,15 +9,17 @@ window.onload = function(){
     
     var index = 0;
     var num;
-    var w = aLi[0].offsetWidth;
+    var w = oSlide.offsetWidth
     var timer=null;
-
+    window.onresize=function(){
+        
+        w = oSlide.offsetWidth 
+        slide.style.transform = 'translate('+ (-w*index) +'px)'
+        //console.log(w)
+    }
+    
     function play(){
         index++;
-        // var clone = aLi[index];
-        // slide.appendChild(clone);
-
-        // console.log(aLi[index])
         if(index===4){
             index = 0;
         }
@@ -63,9 +65,9 @@ window.onload = function(){
     })
     oSlide.addEventListener('mouseout',function(){
         clearInterval(timer);
-        timer = setInterval(play,3000);
+        //timer = setInterval(play,3000);
     })
-    timer = setInterval(play,3000);
+    //timer = setInterval(play,3000);
        
 
     // loadMore
