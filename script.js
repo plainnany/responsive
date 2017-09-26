@@ -135,6 +135,20 @@ window.onload = function(){
                 return true    
             }
         }
+        /* jquery 判断元素是否出现在viewport中
+        * function isVisible(element){
+            let scrollTop = $(window).scrollTop()
+            let elementTop = $(element).offset().top
+            let windowHeight = $(window).height()
+            let elementHeight = $(element).height()
+            if(elementTop>scrollTop-elementHeight && elementTop< scrollTop+windowHeight){
+                return true
+            }else{
+                return false
+            }
+        }
+        *
+        */
         loadMore.onclick = load
         window.onscroll = function(){
             if(showInViewport(loadMore)){
