@@ -65,9 +65,9 @@ window.onload = function(){
     })
     oSlide.addEventListener('mouseout',function(){
         clearInterval(timer);
-        //timer = setInterval(play,3000);
+        timer = setInterval(play,3000);
     })
-    //timer = setInterval(play,3000);
+    timer = setInterval(play,3000);
        
 
     // loadMore
