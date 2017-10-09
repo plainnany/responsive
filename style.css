@@ -242,6 +242,10 @@ body{
     height: 30px;
     padding: 0 17px;
 }
+.loading-img{
+    background: url(./loading-bg.gif) no-repeat center center;
+
+}
 
 
 

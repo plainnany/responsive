@@ -91,7 +91,7 @@ window.onload = function(){
                 let html = ''
                 for(let i = 0;i < data.content.length;i++){
                     html += '<li>\
-                    <div><img src="loading-bg.gif" data-src='+ data.content[i].url +' alt=""></div>\
+                    <div><img class="loading-img" data-src='+ data.content[i].url +' alt=""></div>\
                     <h3>'+ data.content[i].title +'</h3><p>'+ data.content[i].content +'</p>\
                     </li>'
                 } 
@@ -157,8 +157,14 @@ window.onload = function(){
             let images = document.querySelectorAll('img[data-src]')
             for(let i=0;i<images.length;i++){
                 if(showInViewport(images[i])){
+                   
                     images[i].src = images[i].getAttribute('data-src')
                     images[i].removeAttribute('data-src')
+                    
+
+                }
+                images[i].onload = function(){
+                    this.className = ''
                 }
             }
         }
